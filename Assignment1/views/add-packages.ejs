@@ -1,0 +1,66 @@
+<html>
+<head>
+    <link href="/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .container-fluid {
+            width: 100%;
+            height: 390px; /* Set a fixed height for the card */
+        }
+
+        .card{
+            height: 440px;
+            width:auto;
+        }
+
+    </style>
+</head>
+<body>
+        <%- include('partials/header') %>
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-sm-8 col-md-6 col-lg-5 g-2">
+                        <div class="card shadow-sm">
+                            <div class="card-body form-container">
+                                <form method="POST" action="/33520496/Yang/packages/add-packages">
+                                    <div class="mb-1">
+                                        <label for="title" class="form-label">Title</label>
+                                        <input type="text" name="title" class="form-control form-control-sm" id="title" placeholder="Enter Package Title" />
+                                    </div>
+                                    <div class="mb-1">
+                                        <label for="description" class="form-label">Description</label>
+                                        <input type="text" name="description" class="form-control form-control-sm" id="description"  placeholder="Enter Package Description"></textarea>
+                                    </div>
+                                    <div class="mb-1">
+                                        <label for="weight" class="form-label">Weight</label>
+                                        <input type="text" name="weight" class="form-control form-control-sm" id="weight" placeholder="Enter Package Weight" />
+                                    </div>
+                                    <div class="mb-1">
+                                        <label for="destination" class="form-label">Destination</label>
+                                        <input type="text" name="destination" class="form-control form-control-sm" id="destination" placeholder="Enter Package Destination" />
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="driverID" class="form-label">Driver ID</label>
+                                        <select name="driverID" id="driverID" class="form-control form-control-sm" style="max-height: 5px;">
+                                            <option value="">-</option>
+                                            <% for (let i = 0; i < records.length; i++) { %>
+                                                <option value="<%= records[i].id %>"><%= records[i].id %></option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="1" id="isAllocated" name="isAllocated" class="form-control form-control-sm">
+                                        <label class="form-check-label" for="isAllocated">Is Allocated?</label>
+                                    </div>
+                                    <h5>             </h5>
+                                    <button class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+    <%- include('partials/footer') %> 
+
+</body>
+</html>
